@@ -9,6 +9,8 @@ var someText = "Hello Tim!"
 System.out.print(someText);
 ```
 
+---
+
 ## Primitive Types
 
 1. numbers (nombre entiers):
@@ -33,6 +35,8 @@ System.out.print(someText);
 
 > les classes sont en gras (Classes Wrapper)
 
+---
+
 Numbers: les valeurs ne sont pas infinies :
 
 ```shell
@@ -43,9 +47,103 @@ jshell> int someNumber = Integer.MAX_VALUE;
 someNumber ==> 2147483647
 ```
 
+les nombre depassant `MAX_VALUE`, doivent avoir le suffix **`L`** (_pour Long_)
+
+```shell
+long someNumber = 2147483649L;
+# ou alors :
+someNumber = 2147483649L;
+
+long someNumber =2147483649; # throw an error
+
+someNumber ==> 2147483649
+```
+
 nous pouvons avoir la taille du type de donnée en y ajoutant _.SIZE_ :
 
 ```shell
 jshell> System.out.print(Long.SIZE);
 64
+```
+
+## Casting
+
+```shell
+jshell> byte minByteValue = Byte.MIN_VALUE;
+minByteValue ==> -128
+
+jshell> byte total = (minByteValue / 2);
+|  Error:
+|  incompatible types: possible lossy conversion from int to byte
+|  byte total = (minByteValue / 2);
+|                ^--------------^
+```
+
+jshell retourne une erreur par ce que`(minByteValue / 2);` est traité comme un **Integer**, c'est la qu'intervient le **Casting** : **`(byte)`**
+>Convertir d'un type a un autre (ici **Integer** vers **Byte**) 
+
+```shell
+jshell> byte total = (byte) (minByteValue / 2);
+total ==> -64
+```
+
+Même chose ici :
+
+```shell
+jshell> short minShortValue = Short.MIN_VALUE
+minShortValue ==> -32768
+###
+jshell> short shortValue = (minShortValue / 2);
+|  Error:
+|  incompatible types: possible lossy conversion from int to short
+|  short shortValue = (minShortValue / 2);
+|                      ^---------------^
+```
+
+devra etre transformé :
+
+```shell
+jshell> short shortValue = (short) (minShortValue / 2);
+shortValue ==> -16384                  
+```
+
+### Float & Double
+
+```shell
+jshell> System.out.print(Float.MIN_VALUE + " to " + Float.MAX_VALUE);
+1.4E-45 to 3.4028235E38
+
+jshell> System.out.print(Double.MIN_VALUE + " to " + Double.MAX_VALUE);
+4.9E-324 to 1.7976931348623157E308
+```
+
+`1.4E-45`: pourra etre traduit par : 1.4 x 10⁻⁴⁵ (1.4 x 10 puissance -45)
+`3.4028235E38`: pourra etre traduit par : 1.4 x 10³⁸ (1.4 x 10 puissance 38)
+
+```shell
+jshell> int intValue = 5; float floatValue = 5; double doubleValue = 5;
+intValue ==> 5
+floatValue ==> 5.0
+doubleValue ==> 5.0
+```
+
+---
+
+```shell
+jshell> float someFloatValue = 5.25
+|  Error:
+|  incompatible types: possible lossy conversion from double to float
+|  float someFloatValue = 5.25;
+|                         ^--^
+```
+
+ici `5.25` est interpreté comme un Double, le Casting revient
+> **Double** est type par defaut, et il est preféré a **Float**, parce que **Double** est plus precis.
+
+```shell
+jshell> float someFloatValue = (float) 5.25;
+someFloatValue ==> 5.25
+
+jshell> float someFloatValue =  5.25f;
+someFloatValue ==> 5.25
 ```
