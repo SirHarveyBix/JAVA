@@ -1,4 +1,4 @@
-# JAVA
+# JAVA: First Steps
 
 après avoir installer [java (17 LTS)](https://www.oracle.com/java/technologies/downloads/#java17)
 
@@ -32,6 +32,10 @@ System.out.print(someText);
 4. booleans:
 
    - boolean (**Boolean**)
+
+5. string
+
+   - **String** (_mais ce n'est techniquement pas un type primitif_)
 
 > les classes sont en gras (Classes Wrapper)
 
@@ -80,7 +84,7 @@ jshell> byte total = (minByteValue / 2);
 ```
 
 jshell retourne une erreur par ce que`(minByteValue / 2);` est traité comme un **Integer**, c'est la qu'intervient le **Casting** : **`(byte)`**
->Convertir d'un type a un autre (ici **Integer** vers **Byte**) 
+>Convertir d'un type a un autre (ici **Integer** vers **Byte**)
 
 ```shell
 jshell> byte total = (byte) (minByteValue / 2);
@@ -146,4 +150,69 @@ someFloatValue ==> 5.25
 
 jshell> float someFloatValue =  5.25f;
 someFloatValue ==> 5.25
+```
+
+---
+
+```shell
+jshell> anyVariable = 5 / 2;
+intValue ==> 2
+
+jshell> anyVariable = 5f / 2f;
+floatValue ==> 2.5
+```
+
+Même chose que precedement: `5 / 2;` est traité comme un **Integer** peu importe le type initial de la variable.
+`5f / 2f;` (**f** pour **Float**) _ou `5d / 2d;` (**d** pour **Double**)_ fera le calcul en considerant le type du suffix
+
+```shell
+jshell> double anyVariable = 5d / 3d;
+# jshell> double anyVariable = 5.00 / 3.00; 
+anyVariable ==> 1.6666666666666667
+
+jshell> float anyVariable = 5f / 3f;
+anyVariable ==> 1.6666666
+```
+
+**Double** represente plus precisement le décimaux.
+
+---
+
+## Primitive Data Types : char
+
+char **_Character_**, ne peu contenir qu'un seul element, en simple quotes:
+
+```shell
+jshell> char anyChar = 'TEST'
+|  Error:
+|  unclosed character literal
+|  char anyChar = 'TEST'
+|                 ^
+
+jshell> char anyChar = "D"
+|  Error:
+|  incompatible types: java.lang.String cannot be converted to char
+|  char anyChar = "D";
+|                 ^-^
+
+jshell> char anyChar = 'D'
+anyChar ==> 'D'
+
+jshell> char anyChar = 68
+anyChar ==> 'D'
+```
+
+char n'est pas un String, il fait reference a son [unicode](https://symbl.cc/fr/) : '**[D](https://symbl.cc/fr/0044/)**'
+
+voici l'exemple des possibilitées '**?**':
+
+```shell
+jshell> char simpleChar= '?';
+simpleChar ==> '?'
+
+jshell> char unicodeChar = '\u003F';
+unicodeChar ==> '?'
+
+jshell> char decimalChar= 63;
+decimalChar ==> '?'
 ```
