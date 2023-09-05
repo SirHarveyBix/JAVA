@@ -216,3 +216,17 @@ unicodeChar ==> '?'
 jshell> char decimalChar= 63;
 decimalChar ==> '?'
 ```
+
+Attention :
+
+```shell
+jshell> System.out.print(simpleChar + simpleChar)
+126
+```
+
+pour **Character**, quand concatenés avec un operateur (ici **+**) ce n'est pas la valeur mais le nombre de bytes qui sera retourné, pour retourner la valeur grâce à la contatenation :
+
+```shell
+jshell> System.out.print("" + simpleChar + simpleChar)
+??
+```
