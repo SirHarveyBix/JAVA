@@ -11,6 +11,24 @@ public class Main {
             }
             default -> System.out.println("Value was not 1, 2, 3, 4, or 5");
         }
+        Months month = Months.April;
+        System.out.println(month + " is in the " + getQuarter(month) + " quarter");
+    }
+
+    public static String getQuarter(Months months) {
+
+        return switch (months) {
+            case January, February, March -> {
+                yield "1st";
+            }
+            case April, May, June -> "2nd";
+            case July, August, September -> "3rd";
+            case October, November, December -> "4th";
+            default -> {
+                String badResponse = months + " is bad.";
+                yield /*return*/ badResponse;
+            }
+        };
     }
 
 }
