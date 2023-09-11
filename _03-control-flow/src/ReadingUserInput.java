@@ -18,9 +18,7 @@ public class ReadingUserInput {
 
         String dateOfBirth = System.console().readLine("What year were you born ? ");
         int age = currentYear - Integer.parseInt(dateOfBirth);
-        if (age < 0) {
-            return "NO WAY !";
-        }
+        checkData(currentYear, dateOfBirth);
 
         return "So you are " + age + " years old";
     }
@@ -32,17 +30,32 @@ public class ReadingUserInput {
         String name = scanner.nextLine();
 
         System.out.println("Hi " + name + ", Welcome to this course!");
-
-        // String dateOfBirth = System.console().readLine("What year were you born ? ");
         System.out.println("What year were you born ? ");
-        String dateOfBirth = scanner.nextLine();
+        boolean validDOB = false;
+        int age = 0;
 
-        int age = currentYear - Integer.parseInt(dateOfBirth);
-
-        if (age < 0 || Integer.parseInt(dateOfBirth) < 0) {
-            return "NO WAY !";
-        }
+        do {
+            System.out.println("Enter a year of birth >= " + (currentYear - 125) + " and <=" + (currentYear));
+            String dateOfBirth = scanner.nextLine();
+            try {
+                age = checkData(currentYear, dateOfBirth);
+                validDOB = age >= 0;
+            } catch (NumberFormatException badUserInput) {
+                System.out.println("What ?! " + '"' + dateOfBirth + '"' + "'s not a date !");
+            }
+        } while (!validDOB);
 
         return "So you are " + age + " years old";
+    }
+
+    public static int checkData(int currentYear, String dateOfBirth) {
+
+        int dob = Integer.parseInt(dateOfBirth);
+        int minimumYear = currentYear - 125;
+
+        if ((dob < minimumYear) || (dob > currentYear)) {
+            return -1;
+        }
+        return (currentYear - dob);
     }
 }
