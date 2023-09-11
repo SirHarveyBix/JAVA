@@ -1,6 +1,72 @@
 public class ChallengeExercises {
     public static void main(String[] args) {
-        numberToWords(10);
+        printSquareStarExplained(18);
+    }
+
+    public static void printSquareStar(int number) {
+        if (number < 5) {
+            System.out.println("Invalid Value");
+            return;
+        }
+
+        for (int row = 0; row < number; row++) {
+            for (int column = 0; column < number; column++) {
+                if (row == 0 ||
+                        row == number - 1 ||
+                        column == 0 ||
+                        column == number - 1 ||
+                        column == row ||
+                        column == number - 1 - row) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void printSquareStarExplained(int number) {
+        if (number < 5) System.out.println("Invalid Value");
+        else {
+            for (int row = 0; row < number; row++) {
+                for (int column = 0; column < number; column++) {
+                    if (row == 0 || row == number - 1) System.out.print("1"); // top and bottom rows
+                    else if (column == 0) System.out.print("2"); // left column
+                    else if (column == number - 1) System.out.print("3"); // right column
+                    else if (column == row) System.out.print("4"); // diagonal down to right
+                    else if (column == number - 1 - row) System.out.print("5"); // diagonal down to left
+                        // alternative to lines 7-11 // if(row==0 || row==number-1 || column==0 || column==number-1 || column==row || column==number-1-row) System.out.print("*");
+                    else System.out.print(" ");  // empty space between numbers
+                }
+                System.out.println(); // puts a return to the row
+            }
+        }
+    }
+
+    public static int getLargestPrime(int number) {
+        if (number < 2) return -1;
+
+        for (int i = 2; i < number; i++) {
+            if ((number % i) == 0) {
+                number /= i;
+                i--;
+            }
+        }
+        return number;
+    }
+
+    public static boolean canPack(int bigCount, int smallCount, int goal) {
+        if ((bigCount < 0) || (smallCount < 0) || (goal < 0)) { // #1 validation
+            return false;
+        }
+
+        while (bigCount > 0 && goal >= 5) { // #2 subtract 5 from goal for each bigCount
+            goal -= 5;
+            bigCount--;
+        }
+        return smallCount >= goal; // #3 make sure enough smallCount to fill remaining goal
     }
 
     public static void numberToWords(int number) {
