@@ -2,10 +2,41 @@ import java.util.Scanner;
 
 public class ReadingUserInputChallenge {
     public static void main(String[] args) {
-        System.out.println(getInputFromScanner());
+        System.out.println(getBiggestSmallestNumber());
     }
 
-    public static String getInputFromScanner() {
+    public static String getBiggestSmallestNumber() {
+        Scanner scanner = new Scanner(System.in);
+
+        int counter = 0;
+        double bigestNumber = 0;
+        double smallestNumber = 0;
+
+        while (true) {
+            System.out.println("Enter a number or a character to exit");
+            String currentNumber = scanner.nextLine();
+            try {
+                double currentValidNumber = Double.parseDouble(currentNumber);
+                if (counter == 0 || currentValidNumber > bigestNumber) {
+                    bigestNumber = currentValidNumber;
+                }
+                if (counter == 0 || currentValidNumber < smallestNumber) {
+                    smallestNumber = currentValidNumber;
+                }
+                counter++;
+                System.out.println("Enter Number # " + counter + ", You entered = " + currentNumber + "\n");
+            } catch (NumberFormatException badUserInput) {
+                System.out.println("You did not respected the rule, you break the loop.");
+                break;
+            }
+        }
+        if (counter > 0) {
+            return "Your Biggest number is " + bigestNumber + ", smallest is " + smallestNumber;
+        }
+        return "No valid data entered.";
+    }
+
+    public static String getNumberInput() {
         Scanner scanner = new Scanner(System.in);
         int counter = 0;
         double sum = 0;
