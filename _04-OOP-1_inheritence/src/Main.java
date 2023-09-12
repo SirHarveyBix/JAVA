@@ -22,5 +22,15 @@ public class Main {
         targa.setColor("Red");
 
         targa.describeCar();
+
+        System.out.println("\n # ---- ---- ---- # \n");
+
+        BankAccount bobAccount = new BankAccount();
+        bobAccount.setNumber("08089978521");
+        bobAccount.setBalance(800);
+        bobAccount.setCustomerName("Bobby Brown");
+        bobAccount.withdrawFunds(1000);
+        bobAccount.depositFunds(250);
+        bobAccount.withdrawFunds(500);
     }
 }
