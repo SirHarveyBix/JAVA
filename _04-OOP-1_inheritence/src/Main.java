@@ -1,3 +1,5 @@
+import exercices.Customer;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -34,8 +36,19 @@ public class Main {
         bobAccount.withdrawFunds(500);
 
         System.out.println("\n # ---- ---- ---- # \n");
-                
+
         BankAccount timsAccount = new BankAccount("Tim", "Tim@email.com", "12345");
         System.out.println("Account N° " + timsAccount.getNumber() + "; name " + timsAccount.getCustomerName());
+
+        System.out.println("\n # ---- ---- ---- # \n");
+
+        Customer customer = new Customer("Didier", 1000, "Didier.me");
+        System.out.println(customer.getName() + " - " + customer.getEmailAddress() + " - " + customer.getCreditLimit());
+
+        Customer secondCustomer = new Customer();
+        System.out.println(secondCustomer.getName() + " - " + secondCustomer.getEmailAddress() + " - " + secondCustomer.getCreditLimit());
+
+        Customer thirdCustomer = new Customer("Denis", 259, "Denis@chezlesdenis.me");
+        System.out.println(thirdCustomer.getName() + " - " + thirdCustomer.getEmailAddress() + " - " + thirdCustomer.getCreditLimit());
     }
 }
