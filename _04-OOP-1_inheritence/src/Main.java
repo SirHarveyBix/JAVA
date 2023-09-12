@@ -25,12 +25,17 @@ public class Main {
 
         System.out.println("\n # ---- ---- ---- # \n");
 
-        BankAccount bobAccount = new BankAccount("123456", 2500, "Bobby Brown", "Bobby@brown.me", "(+33) 123-4567");
-        System.out.println(bobAccount.getNumber());
-        System.out.println(bobAccount.getBalance());
+        // BankAccount bobAccount = new BankAccount("123456", 2500, "Bobby Brown", "Bobby@brown.me", "(+33) 123-4567");
+        BankAccount bobAccount = new BankAccount();
+        System.out.println("Account number " + bobAccount.getNumber() + " its balance " + bobAccount.getBalance());
 
         bobAccount.withdrawFunds(1000);
         bobAccount.depositFunds(250);
         bobAccount.withdrawFunds(500);
+
+        System.out.println("\n # ---- ---- ---- # \n");
+                
+        BankAccount timsAccount = new BankAccount("Tim", "Tim@email.com", "12345");
+        System.out.println("Account N° " + timsAccount.getNumber() + "; name " + timsAccount.getCustomerName());
     }
 }

@@ -6,17 +6,26 @@ public class BankAccount {
     private String customerPhone = "+336789898989";
 
     public BankAccount() { // constructor
+        // constructor inside a constructor => constructor chaining
+        this("56792", 2.50, "Default name", "Default address", "Default phone");
         System.out.println("Empty constructor Called !");
     }
 
-    public BankAccount(String number, double balance, String customerName, String email, String phone) {
-        System.out.println("BankAccount constructor Called");
+    public BankAccount(String number, double balance, String customerName, String email, String phone) { // constructor
+        System.out.println("BankAccount constructor with parameters Called");
 
         this.number = number;
         this.balance = balance;
         this.customerName = customerName;
         customerEmail = email;
         customerPhone = phone;
+    }
+
+    public BankAccount(String customerName, String customerEmail, String customerPhone) { // constructor without all values
+        this("999999", 100.55, customerName, customerEmail, customerPhone); // adding all necessary values
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
     }
 
     public void setNumber(String accountNumber) {
