@@ -2,51 +2,55 @@ public class BankAccount {
     private String number = "123";
     private double balance = 0;
     private String customerName = "Kevin";
-    private String email = "Kevin@me.com";
-    private String phoneNumber = "+336789898989";
+    private String customerEmail = "Kevin@me.com";
+    private String customerPhone = "+336789898989";
+
+    public BankAccount() { // constructor
+        System.out.println("Empty constructor Called !");
+    }
+
+    public BankAccount(String number, double balance, String customerName, String email, String phone) {
+        System.out.println("BankAccount constructor Called");
+
+        this.number = number;
+        this.balance = balance;
+        this.customerName = customerName;
+        customerEmail = email;
+        customerPhone = phone;
+    }
 
     public void setNumber(String accountNumber) {
         this.number = accountNumber;
     }
-
     public void setBalance(int accountBalance) {
         this.balance = accountBalance;
     }
-
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-
     public void setEmail(String email) {
-        this.email = email;
+        this.customerEmail = email;
     }
-
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.customerPhone = phoneNumber;
     }
 
     public String getNumber() {
         return number;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public String getCustomerName() {
         return customerName;
     }
-
     public String getEmail() {
-        return email;
+        return customerEmail;
     }
-
     public String getPhoneNumber() {
-        return phoneNumber;
+        return customerPhone;
     }
-
     public void depositFunds(double depositAmount) {
-
         balance += depositAmount;
         System.out.println("Deposit of $" + depositAmount + ". New balance is $" + balance);
     }

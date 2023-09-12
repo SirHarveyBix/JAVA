@@ -25,10 +25,10 @@ public class Main {
 
         System.out.println("\n # ---- ---- ---- # \n");
 
-        BankAccount bobAccount = new BankAccount();
-        bobAccount.setNumber("08089978521");
-        bobAccount.setBalance(800);
-        bobAccount.setCustomerName("Bobby Brown");
+        BankAccount bobAccount = new BankAccount("123456", 2500, "Bobby Brown", "Bobby@brown.me", "(+33) 123-4567");
+        System.out.println(bobAccount.getNumber());
+        System.out.println(bobAccount.getBalance());
+
         bobAccount.withdrawFunds(1000);
         bobAccount.depositFunds(250);
         bobAccount.withdrawFunds(500);

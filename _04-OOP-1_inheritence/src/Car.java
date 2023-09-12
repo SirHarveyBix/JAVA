@@ -1,4 +1,9 @@
 public class Car {
+
+    public Car() { // constructor
+        System.out.println("Empty constructor Called !");
+    }
+
     // fields :
     private String make = "Tesla"; // default value
     private String model = "Model X";
