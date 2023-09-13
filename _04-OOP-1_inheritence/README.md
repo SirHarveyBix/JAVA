@@ -1,11 +1,71 @@
 # Class & Oriented Object Programming - Part 1
 
-Access keyword
+<u>Class Access Keyword</u>
 
 - __public__ : n'importe quelle autre class peut y acceder dans n'importe quel autre package.
 - __protected__ : seulement dans le même package, ou sous class dans d'autres package.
 - _**sans modifier**_ : appelé _package access_ les membres sont accessible seulement aux classes du meme package
 - __private__ : _(encapsulation)_ seulement dans la class declarée.
+
+<u>Static Variables</u>
+
+- __static__ commu sous le nom "member variables"
+
+toutes les instances d'une class partage les mêmes __static variables__
+
+ ```java
+class Dog {
+  private static String name;
+
+  public Dog(string name) {
+    Dog.name = name;
+  }
+
+  public void printName() {
+    System.out.println("name = " + name); // using Dog.name would have made this code less confusing
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Dog rex = new Dog("rex"); // create instance ("rex")
+    Dog fluffy = new Dog("fluffy"); // create instance ("fluffy")
+
+  rex.printName(); // prints fluffy
+  fluffy.printName(); // prints fluffy 
+  }
+}
+ ```
+
+<u>Instance Variables</u>
+
+- chaque instance a sa propre copie de la varible d'instance,
+- chaque instance peu avoir un valeur differente,
+- __Instance Variables__ représentent _le state_, l'état, d'une instance spécifique
+
+ ```java
+class Dog {
+  private String name; // remove static
+
+  public Dog(string name) {
+    this.name = name; // replace Dog this this
+  }
+
+  public void printName() {
+    System.out.println("name = " + name);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Dog rex = new Dog("rex"); // create instance ("rex")
+    Dog fluffy = new Dog("fluffy"); // create instance ("fluffy")
+
+  rex.printName(); // prints rex
+  fluffy.printName(); // prints fluffy 
+  }
+}
+ ```
 
 ---
 
@@ -75,4 +135,72 @@ on a toujours 2 __objects__ en memoire, et 3 __références__
 System.out.println(blueHouse.getColor()); // Yellow
 System.out.println(greenHouse.getColor()); // green
 System.out.println(anotherHouse.getColor()); // green
+```
+
+---
+
+## Static Methods Vs. Instance Methods
+
+### Static Methods
+
+- déclarée en utilisant `static`
+- ne peut acceder aux __Instance Methods__ & __Instance Variables__
+- utilisée pour les operations qui ne necessite pas de donnée de puis l'instance de la class <u>_`this.`_</u>
+  - `this`: current instance
+- on ne peu pas utiliser `this`
+
+```java
+class Calculator {
+  public static void printSum(int a, int b) {
+    System.out.println("sum = " + (a + b));
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Calculator.printSum(5 ,10);
+    printHello(); // shorter from of Main.printHello();
+  }
+
+  public static void printHello() 
+    System.out.println("Hello World!");
+  }
+}
+```
+
+__Static Methods__ sont appelée : `ClassName.methodName();` ou `methodName();` => seulement si dans la même class.
+
+- ```java
+    Calculator.printSum(5 ,10);
+    printHello();
+  ```
+
+---
+
+### Instance Methods
+
+- appartiennent a un instance, a une class
+- pour l'utiliser, il faut l'instancier an utilisant __`new`__
+- peut acceder aux __Instance Methods__, __Instance Variables__ & __Static Methods__, __Static Variables__
+
+```java
+class Dog { #{[|`»
+  public void bark() { // no « static »
+    System.out.println("Woof"));
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Dog rex = new Dog(); // create instance
+    rex.bark(); // call instace method
+  }
+}
+```
+
+```mermaid
+flowchart TD
+    A([je dois utiliser « <b>static</b> » ?]) --> B(ma method utilise <b>fields</b> &#40<b>Instance Variables</b>&#41 ou <b>Instance Methods</b> ?)
+    B -->| Yes | C[Instance Methods]
+    B -->| NO | D[Static Methods]
 ```
