@@ -184,7 +184,7 @@ __Static Methods__ sont appelée : `ClassName.methodName();` ou `methodName();` 
 - peut acceder aux __Instance Methods__, __Instance Variables__ & __Static Methods__, __Static Variables__
 
 ```java
-class Dog { #{[|`»
+class Dog {
   public void bark() { // no « static »
     System.out.println("Woof"));
   }
@@ -200,7 +200,7 @@ public class Main {
 
 ```mermaid
 flowchart TD
-    A([je dois utiliser « <b>static</b> » ?]) --> B(ma method utilise <b>fields</b> &#40<b>Instance Variables</b>&#41 ou <b>Instance Methods</b> ?)
+    A([je dois utiliser <b>static</b> ?]) --> B(ma method utilise <b>fields</b> &#40<b>Instance Variables</b>&#41 ou <b>Instance Methods</b> ?)
     B -->| Yes | C[Instance Methods]
     B -->| NO | D[Static Methods]
 ```
