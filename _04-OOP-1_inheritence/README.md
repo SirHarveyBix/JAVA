@@ -204,3 +204,29 @@ flowchart TD
     B -->| Yes | C[Instance Methods]
     B -->| NO | D[Static Methods]
 ```
+
+## POJO (Plain Old Java Object)
+
+c'est un class qui, généralement, n'a que des __Instance Fields__, c'est utiliser pour héberger des données, entre classes fonctionnel, beacoup de framework utilisent __POJO__ pour lire ou ecrire databases fichiers ou flux.
+
+- peut etre aussi appelé Bean ou JavaBean,
+  - POJO avec des règles supplementaires
+- parfois appeler __Entity__,  parce qu'ils refletent (_mirors_) les databases entities.
+- autres acronyme: __DTO__ pour _Data Transfer Object_.
+  - c'est la descirption d'un objet qu'on peu modeliser en tant que Data
+
+```mermaid
+---
+title: The Entity - The Student Entity Table
+---
+erDiagram
+    Student {
+        String id 
+        String name 
+        String DateOdBirth 
+        String ClassList 
+    }
+```
+
+Code : [Student](./src/Student.java)
+executed on [Main](./src/Main.java)

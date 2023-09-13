@@ -50,5 +50,24 @@ public class Main {
 
         Customer thirdCustomer = new Customer("Denis", 259, "Denis@chezlesdenis.me");
         System.out.println(thirdCustomer.getName() + " - " + thirdCustomer.getEmailAddress() + " - " + thirdCustomer.getCreditLimit());
+
+        System.out.println("\n # ---- ---- ---- # \n");
+
+        for (int i = 1; i <= 5; i++) {
+            Student student = new Student(
+                    "S92300" + i,
+                    switch (i) {
+                        case 1 -> "Mary";
+                        case 2 -> "Carol";
+                        case 3 -> "Tim";
+                        case 4 -> "Lisa";
+                        case 5 -> "Henry";
+                        default -> "Anonymous";
+                    },
+                    "17/08/1988",
+                    "Java Masterclass"
+            );
+            System.out.println(student);
+        }
     }
 }
