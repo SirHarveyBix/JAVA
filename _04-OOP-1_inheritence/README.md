@@ -230,3 +230,19 @@ erDiagram
 
 Code : [Student](./src/Student.java)
 executed on [Main](./src/Main.java)
+
+### Record
+
+```java
+public record LPAStudent(String id, String name, String dateOfBirth, String classList) {}
+```
+
+`String id, String name, String dateOfBirth, String classList` = Record Header
+
+c'est une liste de __components__, pour chaque composant dans leheader java genère :
+
+- un champ avec le mem nom et declare le type : record component
+- les champs sont decalré : `private` & `final`.
+- le champ est parfois referé comme _component field_.
+- java genere la method toString pour afficher chaque attribu au format string
+- java genere un accessor public pour chaque composant
