@@ -32,13 +32,39 @@ public class Dog extends Animal {
     }
 
     public void makeNoise() {
-        // Override makeNoise method from Animal Class, but here it does nothing,
-        // because it does not implementing makeNoise method : super.makeNoise() is missing
+        // Override makeNoise method from Animal Class, making this code unique to Dog
+        if (type == "Wolf") System.out.println("Ow Woooo !");
+
+        bark();
+        System.out.println();
     }
 
     @Override // implements & Override move method from Animal Class.
     public void move(String speed) {
-        super.move(speed); // implements move method from Animal Class: kind of Animal.move(speed)
-        System.out.println("Dogs walk, run & wag their tail");
+        super.move(speed); // implements move method from Animal Class: kind of Animal.move(speed);
+        if (speed == "slow") {
+            walk();
+            wagTail();
+        } else {
+            run();
+            bark();
+        }
+        System.out.println();
+    }
+
+    private void bark() {
+        System.out.println("Woof! ");
+    }
+
+    private void run() {
+        System.out.println("Dog Running! ");
+    }
+
+    private void walk() {
+        System.out.print("Dog Walking ");
+    }
+
+    private void wagTail() {
+        System.out.println("Tail Waging! ");
     }
 }
