@@ -16,7 +16,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Inheritance.Animal{" +
+        return "Animal{" +
                 "type='" + type + '\'' +
                 ", size='" + size + '\'' +
                 ", weight=" + weight +
@@ -28,6 +28,6 @@ public class Animal {
     }
 
     public void makeNoise() {
-        System.out.println(type + " make som kind of noise");
+        System.out.println(type + " makes some kind of noise");
     }
 }
