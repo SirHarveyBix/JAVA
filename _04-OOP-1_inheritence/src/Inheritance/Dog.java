@@ -38,7 +38,7 @@ public class Dog extends Animal {
 
     @Override // implements & Override move method from Animal Class.
     public void move(String speed) {
-        super.move(speed); // implements move method from Animal Class
+        super.move(speed); // implements move method from Animal Class: kind of Animal.move(speed)
         System.out.println("Dogs walk, run & wag their tail");
     }
 }
