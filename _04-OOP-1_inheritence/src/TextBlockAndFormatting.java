@@ -1,5 +1,3 @@
-package inheritanceChallange;
-
 public class TextBlockAndFormatting {
     public static void main(String[] args) {
         String bulletIt = "Print a bulleted list :\n" + "\t\u2022 First Point\n" + "\t\t\u2022 Sub Point"; // •
