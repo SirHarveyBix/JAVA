@@ -12,7 +12,7 @@ public class Printer {
     }
 
     public int addToner(int tonerAmount) {
-        int tempAmount = tonerAmount+ tonerLevel;
+        int tempAmount = tonerAmount + tonerLevel;
         if (tempAmount > 100 || tempAmount < 0) {
             return -1;
         }
