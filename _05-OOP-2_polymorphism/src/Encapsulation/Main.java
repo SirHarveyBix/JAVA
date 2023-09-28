@@ -16,5 +16,14 @@ public class Main {
 //
 //        player.loseHealth(11);
 //        System.out.println("Remaining Health = " + player.healthRemaining());
+
+        EnhancedPlayer gui = new EnhancedPlayer("Gui");
+        System.out.println("Initial health is " + gui.healthRemaining());
     }
 }
+
+//encapsulated class :
+// creeer des constrcutors pour l'inistialisation des objects, ce qui force les objects a avoir des données valide
+// private acces modifyiers
+//getter / setter suelement pour les methods qui en ont besoin.
+// uses acces modifyiers non private seuelemnt pour les medhotes qui ont besoin d'etre utilisées.
