@@ -1,3 +1,5 @@
+package Computer;
+
 public class PersonalComputer extends Product {
     private ComputerCase computerCase;
     private Monitor monitor;

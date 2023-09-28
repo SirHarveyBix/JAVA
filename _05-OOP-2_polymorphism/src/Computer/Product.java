@@ -1,3 +1,5 @@
+package Computer;
+
 public class Product {
     private String model;
     private String manufacturer;
