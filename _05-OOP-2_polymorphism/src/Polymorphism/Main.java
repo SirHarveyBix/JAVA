@@ -21,10 +21,9 @@ public class Main {
             if ("Qq".contains(type)) break;
 
             System.out.println("Enter Movie Title: ");
-
             String title = scanner.nextLine();
-            Movie movie = Movie.getMovie(type, title);
 
+            Movie movie = Movie.getMovie(type, title);
             movie.watchMovie();
         } while (true);
     }
