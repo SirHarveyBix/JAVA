@@ -12,8 +12,8 @@ public class NextMain {
 
         System.out.println("\n # # # # # \n");
 
-        Object comedy = Movie.getMovie("C", "Airplane");
-        Comedy comedyMovie = (Comedy) comedy;
+        Object theComedy = Movie.getMovie("C", "Airplane");
+        Comedy comedyMovie = (Comedy) theComedy;
         comedyMovie.watchComedy();
 
         System.out.println("\n # # # # # \n");
@@ -27,5 +27,22 @@ public class NextMain {
         // Local Variable Type Inference
         var plane = new Comedy("Airplane");
         plane.watchComedy();
+
+        System.out.println("\n # # # # # \n");
+
+        /* #Runtime type */
+        Object unknownObject = Movie.getMovie("S", "Airplane");
+        if (unknownObject.getClass().getSimpleName() == "Comedy") {
+            /* var airplane = Movie.getMovie("C", "Airplane"); don't need to be cast, instead of the next line,
+             * because the next line IS polymorphism */
+            Comedy comedy = (Comedy) unknownObject;
+            comedy.watchComedy();
+        } else if (unknownObject instanceof Adventure) {
+            ((Adventure) unknownObject).watchAdventure();
+        } else if (unknownObject instanceof ScienceFiction syfy) {
+            /* if JAVA identify the object matches the type,
+             * it extracts data from the object without casting */
+            syfy.watchScienceFiction();
+        }
     }
 }
