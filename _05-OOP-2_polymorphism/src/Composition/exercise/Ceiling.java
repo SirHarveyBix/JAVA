@@ -1,4 +1,4 @@
-package exercices.composition;
+package Composition.exercise;
 
 public class Ceiling {
     private int height;
