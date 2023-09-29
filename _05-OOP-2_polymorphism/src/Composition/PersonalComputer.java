@@ -1,4 +1,4 @@
-package Computer;
+package Composition;
 
 public class PersonalComputer extends Product {
     private ComputerCase computerCase;

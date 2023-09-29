@@ -1,4 +1,4 @@
-package CompositionChallenge;
+package Composition.challenge;
 
 public class SmartKitchen {
     private CoffeeMaker brewMaster;

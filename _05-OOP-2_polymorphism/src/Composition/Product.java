@@ -1,4 +1,4 @@
-package Computer;
+package Composition;
 
 public class Product {
     private String model;
