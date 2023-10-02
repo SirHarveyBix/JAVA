@@ -29,7 +29,7 @@ class SortedArray {
 
     public static void printArray(int[] myArray) {
         for (int i = 0; i < myArray.length; i++) {
-            System.out.println("Element " + i + " contents " + myArray[i]);
+            System.out.println("Value of index " + i + " is " + myArray[i]);
         }
     }
 
