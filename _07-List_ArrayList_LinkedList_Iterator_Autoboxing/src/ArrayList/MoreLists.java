@@ -63,7 +63,8 @@ public class MoreLists {
         System.out.println("groceries = " + groceries);
 
         var groceryArray = groceries.toArray(new String[groceries.size()]);
-        System.out.println("groceryArray = " + Arrays.toString(groceryArray));
+        // for lists .length dosent work, we have to use .size();
+        System.out.println("groceryArray = " + Arrays.toString( groceryArray));
 
     }
 }
