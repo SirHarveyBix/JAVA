@@ -15,7 +15,7 @@ public class ArrayListChallenge {
             printActions();
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1 -> addItems(groceries);
-                case 2-> removeItems(groceries);
+                case 2 -> removeItems(groceries);
                 default -> flag = false;
             }
             groceries.sort(Comparator.naturalOrder());
@@ -42,7 +42,7 @@ public class ArrayListChallenge {
 
         for (String index : items) {
             String trimmed = index.trim();
-                groceries.remove(trimmed);
+            groceries.remove(trimmed);
         }
     }
 
