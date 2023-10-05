@@ -28,11 +28,13 @@ public class Main {
         System.out.println(newPLaceToVisit);
         System.out.println("\n # # # # # \n");
 
-        printItinerary(newPLaceToVisit);
-        System.out.println("\n # # # # # \n");
+//        printItinerary(newPLaceToVisit);
+//        System.out.println("\n # # # # # \n");
 
         printItinerary3(newPLaceToVisit);
         System.out.println("\n # # # # # \n");
+
+        testIterator(newPLaceToVisit);
     }
 
     private static void addMoreElements(LinkedList<String> list) {
@@ -143,5 +145,24 @@ public class Main {
         }
 
         System.out.println("Trip ends at " + list.getLast());
+    }
+
+    private static void testIterator(LinkedList<String> list) {
+//        var iterator = list.iterator();
+        var iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals("0.3 - Brisbane")) {
+//                list.remove(); // ConcurrentModificationException
+//                iterator.remove();
+                iterator.add("Lake Wivenhoe");
+            }
+        }
+        while (iterator.hasPrevious()) {
+            System.out.println("iterator : " + iterator.previous());
+        }
+        System.out.println(list);
+
+        var iterator2 = list.listIterator(3);
+        System.out.println(iterator2.previous());
     }
 }
