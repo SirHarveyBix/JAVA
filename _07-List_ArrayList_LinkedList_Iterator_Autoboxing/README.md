@@ -1,5 +1,9 @@
 # Arrays Vs. ArrayList
 
+---
+# REVOIR : LinkedList
+---
+
 ## Instanciating Arrays
 
 ```java
