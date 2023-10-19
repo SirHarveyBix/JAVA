@@ -8,7 +8,6 @@ public enum Topping {
     TOMATO;
 
     public double getPrice() {
-
         return switch (this) {
             case BACON -> 1.5;
             case CHEDDAR -> 1.0;
